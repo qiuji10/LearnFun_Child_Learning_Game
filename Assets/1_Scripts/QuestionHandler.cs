@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class QuestionHandler : MonoBehaviour
 {
@@ -98,6 +99,7 @@ public class QuestionHandler : MonoBehaviour
     public void Fail()
     {
         Debug.Log("Fail");
+       // SceneManager.LoadScene("")
     }
 
     private IEnumerator PrepareNextQuestion()
