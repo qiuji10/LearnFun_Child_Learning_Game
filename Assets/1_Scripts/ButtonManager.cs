@@ -28,7 +28,7 @@ public class ButtonManager : MonoBehaviour
     {
 
         SoundManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void Resume()
