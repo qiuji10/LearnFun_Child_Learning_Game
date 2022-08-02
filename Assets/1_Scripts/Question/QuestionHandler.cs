@@ -7,12 +7,13 @@ using TMPro;
 public class QuestionHandler : MonoBehaviour
 {
     public TMP_Text quesText;
-    public Button[] buttons;
+    public Button[] button;
     public TMP_Text[] tmp;
 
     public float nextQuestionDelay;
     private int questionIndex;
 
+    private HistoryDatabase history;
     private QuestionsDatabase quesData;
     private Question question;
     private List<int> buttonIndex = new List<int>();
@@ -20,12 +21,13 @@ public class QuestionHandler : MonoBehaviour
     private void Awake()
     {
         quesData = FindObjectOfType<QuestionsDatabase>();
+        history = FindObjectOfType<HistoryDatabase>();
     }
 
     private void Start()
     {
-        Shuffle(quesData.easyQuestions);
-        question = quesData.easyQuestions[questionIndex];
+        Shuffle(quesData.questionsData);
+        question = quesData.questionsData[questionIndex];
         quesText.text = question.questionText;
         AssignListener();
     }
@@ -45,16 +47,20 @@ public class QuestionHandler : MonoBehaviour
 
     public void NextQuestion()
     {
-        Debug.Log(questionIndex + "\n" + quesData.easyQuestions.Count);
-        if (questionIndex == quesData.easyQuestions.Count)
+        for (int i = 0; i < 4; i++)
         {
-            Shuffle(quesData.easyQuestions);
+            button[i].onClick.RemoveAllListeners();
+        }
+
+        if (questionIndex == quesData.questionsData.Count)
+        {
+            Shuffle(quesData.questionsData);
             questionIndex = 0;
         }
         else
         {
             questionIndex++;
-            question = quesData.easyQuestions[questionIndex];
+            question = quesData.questionsData[questionIndex];
             quesText.text = question.questionText;
             AssignListener();
         }
@@ -74,7 +80,7 @@ public class QuestionHandler : MonoBehaviour
 
             buttonIndex.Add(rand);
             tmp[rand].text = question.falseAns[i];
-            buttons[rand].onClick.AddListener(Fail);
+            button[rand].onClick.AddListener(Fail);
         }
 
         for (int i = 0; i < 4; i++)
@@ -82,7 +88,7 @@ public class QuestionHandler : MonoBehaviour
             if (!buttonIndex.Contains(i))
             {
                 tmp[i].text = question.ans.ToString();
-                buttons[i].onClick.AddListener(Success);
+                button[i].onClick.AddListener(Success);
             }
         }
 
@@ -91,13 +97,13 @@ public class QuestionHandler : MonoBehaviour
 
     public void Success()
     {
-        Debug.Log("Success");
+        history.SavePlayerResult(true);
         StartCoroutine(PrepareNextQuestion());
     }
 
     public void Fail()
     {
-        Debug.Log("Fail");
+        history.SavePlayerResult(false);
     }
 
     private IEnumerator PrepareNextQuestion()

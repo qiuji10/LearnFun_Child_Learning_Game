@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public enum Operator { add, subtract, multiply, divide }
 
 public class QuestionsDatabase : MonoBehaviour
 {
-    public List<Question> easyQuestions;
-    public List<Question> hardQuestions;
+    //[Expandable]
+    public List<Question> questionsData;
 }

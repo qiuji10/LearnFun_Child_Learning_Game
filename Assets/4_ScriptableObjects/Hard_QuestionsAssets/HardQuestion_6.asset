@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e589aea9b7f3ade4081e5deea6493398, type: 3}
-  m_Name: Question_2
+  m_Script: {fileID: 11500000, guid: 7adc0fd304525f9489453c2b7e817b90, type: 3}
+  m_Name: HardQuestion_6
   m_EditorClassIdentifier: 
-  questionText: 1 + 4
-  ans: 5
+  questionText: "10 \xF7 5 - 1"
+  ans: 1
   falseAns:
-  - 9
-  - 15
   - 2
-  enableFlag: 0
-  value1: 1
-  operator1: 0
-  value2: 4
+  - 1.5
+  - 0
+  value1: 10
+  operator1: 3
+  value2: 5
+  operator2: 1
+  value3: 1
