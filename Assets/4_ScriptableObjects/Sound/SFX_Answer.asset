@@ -15,7 +15,7 @@ MonoBehaviour:
   SoundList:
   - clip: {fileID: 8300000, guid: c7fa16f5b4e37df4f808c17a7a0eb767, type: 3}
     name: correct
-    volume: 0.5
+    volume: 0.8
   - clip: {fileID: 8300000, guid: 7862f7a6caef1f3478c0044fa8c0edd3, type: 3}
     name: wrong
     volume: 0.5

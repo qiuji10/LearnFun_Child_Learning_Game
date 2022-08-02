@@ -56,18 +56,16 @@ public class QuestionHandler : MonoBehaviour
             button[i].onClick.RemoveAllListeners();
         }
 
-        if (questionIndex == quesData.questionsData.Count)
+        if (questionIndex == quesData.questionsData.Count-1)
         {
             Shuffle(quesData.questionsData);
             questionIndex = 0;
         }
-        else
-        {
-            questionIndex++;
-            question = quesData.questionsData[questionIndex];
-            quesText.text = question.questionText;
-            AssignListener();
-        }
+
+        questionIndex++;
+        question = quesData.questionsData[questionIndex];
+        quesText.text = question.questionText;
+        AssignListener();
 
     }
 
