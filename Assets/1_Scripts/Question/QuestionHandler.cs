@@ -13,6 +13,9 @@ public class QuestionHandler : MonoBehaviour
     public float nextQuestionDelay;
     private int questionIndex;
 
+    [SerializeField] AudioData answerAudio;
+    [SerializeField] GameObject wrongIndicator;
+    private Animator wrongAnim;
     private HistoryDatabase history;
     private QuestionsDatabase quesData;
     private Question question;
@@ -22,6 +25,7 @@ public class QuestionHandler : MonoBehaviour
     {
         quesData = FindObjectOfType<QuestionsDatabase>();
         history = FindObjectOfType<HistoryDatabase>();
+        wrongAnim = wrongIndicator.GetComponent<Animator>();
     }
 
     private void Start()
@@ -97,18 +101,38 @@ public class QuestionHandler : MonoBehaviour
 
     public void Success()
     {
+        AudioManager.instance.PlaySFX(answerAudio, "correct");
         history.SavePlayerResult(true);
         StartCoroutine(PrepareNextQuestion());
     }
 
     public void Fail()
     {
+        AudioManager.instance.PlaySFX(answerAudio, "wrong");
         history.SavePlayerResult(false);
+
+        if (!wrongIndicator.activeInHierarchy)
+        {
+            wrongIndicator.SetActive(true);
+            wrongAnim.SetTrigger("play");
+        }
+        else
+        {
+            wrongAnim.ResetTrigger("play");
+            wrongAnim.SetTrigger("play");
+        }
+        
     }
 
     private IEnumerator PrepareNextQuestion()
     {
         yield return new WaitForSeconds(nextQuestionDelay);
         NextQuestion();
+    }
+
+    private IEnumerator WrongAnsAnimation()
+    {
+        yield return new WaitForSeconds(1);
+        wrongIndicator.SetActive(false);
     }
 }

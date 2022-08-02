@@ -8,32 +8,32 @@ public class ButtonManager : MonoBehaviour
 {
     public GameObject pauseMenuPanel;
     public GameObject pauseButton;
-    [SerializeField] private SoundData buttonSFX;
+    [SerializeField] private AudioData buttonSFX;
 
 
    
     public void Replay()
     {
-        SoundManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
+        AudioManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
         SceneManager.LoadScene("SampleScene");
     }
 
     public void QuitGame()
     {
-        SoundManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
+        AudioManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
         Application.Quit();
     }
 
     public void MainMenu()
     {
 
-        SoundManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
+        AudioManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
         SceneManager.LoadScene("Main Menu");
     }
 
     public void Resume()
     {
-        SoundManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
+        AudioManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
         Time.timeScale = 1;
         pauseMenuPanel.SetActive(false);
         pauseButton.SetActive(true);
@@ -41,7 +41,7 @@ public class ButtonManager : MonoBehaviour
 
     public void Pause()
     {
-        SoundManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
+        AudioManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
         Time.timeScale = 0;
         pauseMenuPanel.SetActive(true);
         pauseButton.SetActive(false);
@@ -49,7 +49,7 @@ public class ButtonManager : MonoBehaviour
 
     public void StartGame()
     {
-        SoundManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
+        AudioManager.instance.PlaySFX(buttonSFX, "ButtonSFX");
         SceneManager.LoadScene("SampleScene");
     }
 }
