@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adc0fd304525f9489453c2b7e817b90, type: 3}
   m_Name: HardQuestion_4
   m_EditorClassIdentifier: 
-  questionText: 10 - 4 - 1
+  questionText: 10 - 4 - 1 = ?
   ans: 5
   falseAns:
   - 6

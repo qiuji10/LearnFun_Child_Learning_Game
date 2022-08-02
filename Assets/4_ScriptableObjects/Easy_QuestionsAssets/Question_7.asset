@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e589aea9b7f3ade4081e5deea6493398, type: 3}
   m_Name: Question_7
   m_EditorClassIdentifier: 
-  questionText: 2 x 3
+  questionText: 2 x 3 = ?
   ans: 6
   falseAns:
   - 7

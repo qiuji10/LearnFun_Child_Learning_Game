@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adc0fd304525f9489453c2b7e817b90, type: 3}
   m_Name: HardQuestion_14
   m_EditorClassIdentifier: 
-  questionText: "2 - 8 \xF7 4"
+  questionText: "2 - 8 \xF7 4 = ?"
   ans: 0
   falseAns:
   - 1

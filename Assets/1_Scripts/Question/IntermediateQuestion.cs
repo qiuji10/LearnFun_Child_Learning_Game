@@ -11,7 +11,7 @@ public class IntermediateQuestion : Question
 
     protected override void ConstructAnswer()
     {
-        questionText = $"{value1} {OperatorDecider(operator1)} {value2} {OperatorDecider(operator2)} {value3}";
+        questionText = $"{value1} {OperatorDecider(operator1)} {value2} {OperatorDecider(operator2)} {value3} = ?";
         formula = $"{value1}{MathOperator(operator1)}{value2}{MathOperator(operator2)}{value3}";
         object answer = table.Compute(formula, "");
         ans = Convert.ToDouble(answer);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e589aea9b7f3ade4081e5deea6493398, type: 3}
   m_Name: Question_1
   m_EditorClassIdentifier: 
-  questionText: 3 + 2
+  questionText: 3 + 2 = ?
   ans: 5
   falseAns:
   - 8

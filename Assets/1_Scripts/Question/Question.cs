@@ -24,7 +24,7 @@ public class Question : ScriptableObject
 
     protected virtual void ConstructAnswer()
     {
-        questionText = $"{value1} {OperatorDecider(operator1)} {value2}";
+        questionText = $"{value1} {OperatorDecider(operator1)} {value2} = ?";
         formula = $"{value1}{MathOperator(operator1)}{value2}";
         object answer = table.Compute(formula, "");
         ans = Convert.ToDouble(answer);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adc0fd304525f9489453c2b7e817b90, type: 3}
   m_Name: HardQuestion_11
   m_EditorClassIdentifier: 
-  questionText: 10 x 10 + 10
+  questionText: 10 x 10 + 10 = ?
   ans: 110
   falseAns:
   - 150
